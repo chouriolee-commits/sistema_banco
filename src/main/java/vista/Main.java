@@ -1,7 +1,9 @@
-package src.java.vista;
+package vista;
 
-import src.java.controlador.ColaBanco;
-import src.java.modelo.Cliente;
+import javax.swing.SwingUtilities;
+
+import controlador.ColaBanco;
+import modelo.Cliente;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -12,19 +14,19 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        ejecutarInterfazSwing();
+    }
 
-        banco.cargarCola("clientes.json");
+    public static void ejecutarInterfazSwing() {
+        SwingUtilities.invokeLater(BancoSwing::mostrarVentana);
+    }
 
-        int opcion;
-        do {
-            mostrarMenu();
-            opcion = leerEntero("Seleccione una opcion: ");
-            ejecutarOpcion(opcion);
-        } while (opcion != 7);
+    private static void cargarDatosConsola() {
+        banco.cargarCola("resources/clientes.json");
+    }
 
-        banco.guardarCola("clientes.json");
-
-        sc.close();
+    private static void guardarDatosConsola() {
+        banco.guardarCola("resources/clientes.json");
     }
 
     private static void mostrarMenu() {

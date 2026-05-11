@@ -1,4 +1,4 @@
-package src.java.controlador;
+package controlador;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -14,7 +14,7 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.reflect.TypeToken;
 
-import src.java.modelo.Cliente;
+import modelo.Cliente;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -65,6 +65,10 @@ public class ColaBanco {
 
     public int tamano() {
         return cola.size();
+    }
+
+    public Queue<Cliente> obtenerCola() {
+        return new LinkedList<>(cola);
     }
 
     public void vaciarCola() {
