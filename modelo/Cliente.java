@@ -29,6 +29,13 @@ public class Cliente {
     public LocalDateTime getHoraLlegada() { return horaLlegada; }
     public String getPrioridad()          { return prioridad; }
 
+    // Setters para Gson
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setIdentificacion(String identificacion) { this.identificacion = identificacion; }
+    public void setTipoTransaccion(String tipoTransaccion) { this.tipoTransaccion = tipoTransaccion; }
+    public void setHoraLlegada(LocalDateTime horaLlegada) { this.horaLlegada = horaLlegada; }
+    public void setPrioridad(String prioridad) { this.prioridad = prioridad; }
+
     private String validarNombre(String nombre) {
         if (nombre == null || nombre.trim().isEmpty())
             throw new IllegalArgumentException("El nombre no puede estar vacio");

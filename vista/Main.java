@@ -13,12 +13,16 @@ public class Main {
 
     public static void main(String[] args) {
 
+        banco.cargarCola("clientes.json");
+
         int opcion;
         do {
             mostrarMenu();
             opcion = leerEntero("Seleccione una opcion: ");
             ejecutarOpcion(opcion);
         } while (opcion != 7);
+
+        banco.guardarCola("clientes.json");
 
         sc.close();
     }
