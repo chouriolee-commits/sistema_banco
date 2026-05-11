@@ -1,8 +1,8 @@
-package controlador;
+package src.java.controlador;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import modelo.Cliente;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -13,6 +13,9 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.reflect.TypeToken;
+
+import src.java.modelo.Cliente;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;

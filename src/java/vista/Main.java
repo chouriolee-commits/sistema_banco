@@ -1,7 +1,7 @@
-package vista;
+package src.java.vista;
 
-import controlador.ColaBanco;
-import modelo.Cliente;
+import src.java.controlador.ColaBanco;
+import src.java.modelo.Cliente;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
