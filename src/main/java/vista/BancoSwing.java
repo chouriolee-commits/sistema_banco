@@ -16,7 +16,7 @@ import java.util.Queue;
 
 public class BancoSwing extends JFrame {
 
-    private static final String ARCHIVO_DATOS = Paths.get(System.getProperty("user.dir"), "resources", "clientes.json").toString();
+    private static final String ARCHIVO_DATOS = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "clientes.json").toString();
 
     private final ColaBanco banco;
     private final DefaultTableModel modeloTabla;

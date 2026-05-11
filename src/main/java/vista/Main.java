@@ -22,11 +22,11 @@ public class Main {
     }
 
     private static void cargarDatosConsola() {
-        banco.cargarCola("resources/clientes.json");
+        banco.cargarCola("src/main/resources/clientes.json");
     }
 
     private static void guardarDatosConsola() {
-        banco.guardarCola("resources/clientes.json");
+        banco.guardarCola("src/main/resources/clientes.json");
     }
 
     private static void mostrarMenu() {
