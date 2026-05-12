@@ -20,10 +20,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ColaBanco {
+
+    public static final String ARCHIVO_DATOS = Paths.get("src", "main", "resources", "clientes.json").toAbsolutePath().toString();
 
     private Queue<Cliente> cola;
     private static final Gson gson = new GsonBuilder()
@@ -78,9 +83,15 @@ public class ColaBanco {
 
     // Métodos para persistencia con Gson
     public void guardarCola(String archivo) {
-        try (FileWriter writer = new FileWriter(archivo)) {
-            gson.toJson(cola, writer);
-            System.out.println(" Cola guardada en " + archivo);
+        try {
+            Path ruta = Paths.get(archivo);
+            if (ruta.getParent() != null && Files.notExists(ruta.getParent())) {
+                Files.createDirectories(ruta.getParent());
+            }
+            try (FileWriter writer = new FileWriter(archivo)) {
+                gson.toJson(cola, writer);
+                System.out.println(" Cola guardada en " + archivo);
+            }
         } catch (IOException e) {
             System.err.println("Error al guardar la cola: " + e.getMessage());
         }

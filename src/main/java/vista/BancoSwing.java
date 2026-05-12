@@ -8,15 +8,12 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Queue;
 
 public class BancoSwing extends JFrame {
 
-    private static final String ARCHIVO_DATOS = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "clientes.json").toString();
 
     private final ColaBanco banco;
     private final DefaultTableModel modeloTabla;
@@ -27,7 +24,7 @@ public class BancoSwing extends JFrame {
         super("Sistema de Turnos - Banco");
 
         banco = new ColaBanco();
-        banco.cargarCola(ARCHIVO_DATOS);
+        banco.cargarCola(ColaBanco.ARCHIVO_DATOS);
 
         modeloTabla = new DefaultTableModel(new String[]{"Nombre", "Cédula", "Tipo", "Hora llegada", "Prioridad"}, 0) {
             @Override
@@ -62,7 +59,7 @@ public class BancoSwing extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                banco.guardarCola(ARCHIVO_DATOS);
+                banco.guardarCola(ColaBanco.ARCHIVO_DATOS);
             }
         });
     }
@@ -258,7 +255,7 @@ public class BancoSwing extends JFrame {
     }
 
     private void guardarYSalir() {
-        banco.guardarCola(ARCHIVO_DATOS);
+        banco.guardarCola(ColaBanco.ARCHIVO_DATOS);
         dispose();
         System.exit(0);
     }
