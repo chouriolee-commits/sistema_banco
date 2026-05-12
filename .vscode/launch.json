@@ -3,6 +3,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MainSwing",
+            "request": "launch",
+            "mainClass": "vista.MainSwing",
+            "projectName": "banco"
+        },
+        {
+            "type": "java",
+            "name": "MainConsola",
+            "request": "launch",
+            "mainClass": "vista.MainConsola",
+            "projectName": "banco"
+        },
+        {
+            "type": "java",
             "name": "BancoSwing",
             "request": "launch",
             "mainClass": "vista.BancoSwing",
